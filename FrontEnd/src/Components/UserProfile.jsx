@@ -24,13 +24,11 @@ function UserProfile() {
     try {
       const action = isFollowing ? "unfollow" : "follow";
       const response = await axios.post(
-        `http://localhost:4000/users/${action}/${userProfileData._id}`,
+        `https://you-and-me-jg8p.onrender.com/users/${action}/${userProfileData._id}`,
         { userid: userData._id }
       );
 
       notify(response.data.message);
-
-      // Update followers in the state to trigger a re-render
       if (action === "follow") {
         setUserProfileData((prevData) => ({
           ...prevData,
@@ -45,7 +43,6 @@ function UserProfile() {
         }));
       }
 
-      // Toggle following status
       setIsFollowing((prevState) => !prevState);
     } catch (err) {
       console.log(`Error while ${isFollowing ? "unfollowing" : "following"} the user`, err);
@@ -57,7 +54,7 @@ function UserProfile() {
     const fetchUserProfileData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/users/myprofile/${id}`
+          `https://you-and-me-jg8p.onrender.com/users/myprofile/${id}`
         );
         
         const profileData = response.data;
@@ -74,8 +71,8 @@ function UserProfile() {
     };
 
     fetchUserProfileData();
-  }, [id, userData]); // Add userData as a dependency
-
+  }, [id, userData]); 
+  
   if (!userProfileData) return <div>Loading...</div>;
 
   return (

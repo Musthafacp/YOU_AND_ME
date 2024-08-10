@@ -31,7 +31,7 @@ function Profile() {
         console.log(imageUrl);
         
         const response = await axios.patch(
-          `http://localhost:4000/users/updateProfile/${userData._id}`,
+          `https://you-and-me-jg8p.onrender.com/users/updateProfile/${userData._id}`,
           { imageUrl, name: editedName }
         );
 
@@ -43,7 +43,7 @@ function Profile() {
     } else {
       try {
         const response = await axios.patch(
-          `http://localhost:4000/users/updateProfile/${userData._id}`,
+          `https://you-and-me-jg8p.onrender.com/users/updateProfile/${userData._id}`,
           { name: editedName }
         );
 

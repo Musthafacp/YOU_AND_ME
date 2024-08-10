@@ -26,7 +26,7 @@ const Chat = () => {
   const fetchSidebarUsers = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:4000/users/myfriends/${userData?._id}`
+        `https://you-and-me-jg8p.onrender.com/users/myfriends/${userData?._id}`
       );
       setUsersData(response.data);
     } catch (error) {
@@ -41,7 +41,7 @@ const Chat = () => {
   }, [userData]);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:4000", {
+    const newSocket = io("https://you-and-me-jg8p.onrender.com", {
       withCredentials: true,
       transports: ["websocket", "polling"],
     });
@@ -65,7 +65,7 @@ const Chat = () => {
       const fetchMessages = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:4000/chat/personalMessages/${userData._id}/${selectedUser._id}`
+            `https://you-and-me-jg8p.onrender.com/chat/personalMessages/${userData._id}/${selectedUser._id}`
           );
           setMessages(response.data);
         } catch (error) {

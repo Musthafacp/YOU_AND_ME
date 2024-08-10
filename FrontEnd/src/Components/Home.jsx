@@ -11,7 +11,7 @@ function Home() {
   const fetchUsersData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:4000/users/${userData?._id}`
+        `https://you-and-me-jg8p.onrender.com/users/${userData?._id}`
       );
       setUsers(response.data);
     } catch (error) {
@@ -25,15 +25,11 @@ function Home() {
     }
   }, [userData]);
 
-  const sendMessage = (id) => {
-    navigate(`/chat/${id}`);
-  };
-
   return (
     <div
       className="px-5 py-5 sm:px-10 sm:py-10 h-screen w-screen bg-contain bg-no-repeat "
       style={{
-        backgroundImage: `url(https://static.vecteezy.com/system/resources/previews/005/083/786/original/you-and-me-calligraphic-inscription-with-smooth-lines-vector.jpg)`,
+        // backgroundImage: `url(https://static.vecteezy.com/system/resources/previews/005/083/786/original/you-and-me-calligraphic-inscription-with-smooth-lines-vector.jpg)`,
         backgroundPosition : "center",
       }}
     >
@@ -83,7 +79,6 @@ function Home() {
                   <div className="mt-2 flex justify-end w-full">
                     <img
                       className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer"
-                      onClick={() => sendMessage(user._id)}
                       src={chat}
                       alt=""
                     />
