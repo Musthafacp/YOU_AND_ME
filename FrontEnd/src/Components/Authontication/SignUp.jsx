@@ -34,6 +34,7 @@ function SignUp() {
         }
       );
       setAlert(false);
+      Cookies.set("token", response.data.token);
       if (response.status === 201) {
         navigate("/home");
       }

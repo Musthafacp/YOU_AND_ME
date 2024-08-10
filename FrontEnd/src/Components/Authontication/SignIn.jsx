@@ -28,12 +28,13 @@ function SignIn() {
   const onSubmit = async (data) => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/users/getone",
+        "https://you-and-me-jg8p.onrender.com/users/getone",
         data,
         {
           withCredentials: true,
         }
       );
+      Cookies.set("token", response.data.token);
       if (response.status === 201) {
         navigate("/home");
       }

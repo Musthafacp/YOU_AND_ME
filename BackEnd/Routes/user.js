@@ -246,7 +246,6 @@ router.post("/", async (req, res) => {
 
       const userProfile = await Profilemodel.create(userProfileData);
       const token = generateToken(userProfile);
-      console.log("token while creating an account :-  ", token);
 
       res.cookie("token", token, {
         httpOnly: false,
@@ -255,7 +254,9 @@ router.post("/", async (req, res) => {
         maxAge: 7 * 24 * 60 * 60 * 1000,
       });
 
-      res.status(201).json({ message: "User created successfully" });
+      res
+        .status(201)
+        .json({ message: "User created successfully", token: token });
     }
   } catch (err) {
     console.log(
