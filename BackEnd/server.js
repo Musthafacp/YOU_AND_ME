@@ -41,8 +41,8 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: "http://localhost:5174",
-    // origin:"https://cosmos-weld.vercel.app",
+    // origin: "http://localhost:5174",
+    origin:"https://you-and-me-build.vercel.app",
     secure: false,
     credentials: true,
   })
