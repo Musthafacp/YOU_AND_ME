@@ -27,11 +27,6 @@ app.use(
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: {
-      secure: false,
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-      httpOnly: false,
-    },
   })
 );
 
@@ -41,8 +36,6 @@ app.use(passport.session());
 app.use(
   cors({
     origin: "http://localhost:5174",
-    // origin:"https://you-and-me-build.vercel.app",
-    secure: false,
     credentials: true,
   })
 );

@@ -52,12 +52,7 @@ passport.use(
 
           const token = generateToken(existingProfile);
 
-          request.res.cookie("token", token, {
-            maxAge: 7 * 24 * 60 * 60 * 1000,
-            httpOnly: false,
-          });
-
-          return done(null, existingProfile);
+          return done(null, { profile: existingProfile, token });
         }
 
         const userDetail = await createUser(profile);
@@ -74,12 +69,7 @@ passport.use(
 
         const token = generateToken(profileData);
 
-        request.res.cookie("token", token, {
-          maxAge: 7 * 24 * 60 * 60 * 1000,
-          httpOnly: false,
-        });
-
-        return done(null, profileData);
+        return done(null, { profile: profileData, token });
       } catch (error) {
         return done(error);
       }
