@@ -10,7 +10,7 @@ router.get(
   "/google/callback",
   passport.authenticate("google", { failureRedirect: "http://localhost:5174/login" }),
   (req, res) => {
-    console.log(req);
+    console.log(req.user);
     const { token, profile } = req.user;
 
     res.cookie("token", token, {
