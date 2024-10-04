@@ -45,7 +45,7 @@ function SignIn() {
   };
 
   const toLogin = () => {
-    window.location.href = "http://localhost:4000/auth/google";
+    window.location.href = "https://you-and-me-jg8p.onrender.com/auth/google";
   };
 
   return (

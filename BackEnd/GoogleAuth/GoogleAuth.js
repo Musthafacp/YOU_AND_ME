@@ -22,7 +22,7 @@ passport.use(
     {
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:4000/auth/google/callback",
+      callbackURL: "https://you-and-me-jg8p.onrender.com/auth/google/callback",
       passReqToCallback: true,
     },
     async function (request, accessToken, refreshToken, profile, done) {
@@ -57,12 +57,6 @@ passport.use(
             httpOnly: false,
           });
 
-          const passwordBool = false;
-          request.res.cookie("passwordisthere", passwordBool, {
-            maxAge: 7 * 24 * 60 * 60 * 1000,
-            httpOnly: false,
-          });
-
           return done(null, existingProfile);
         }
 
@@ -81,11 +75,6 @@ passport.use(
         const token = generateToken(profileData);
 
         request.res.cookie("token", token, {
-          maxAge: 7 * 24 * 60 * 60 * 1000,
-          httpOnly: false,
-        });
-        const passwordBool = false;
-        request.res.cookie("passwordisthere", passwordBool, {
           maxAge: 7 * 24 * 60 * 60 * 1000,
           httpOnly: false,
         });
