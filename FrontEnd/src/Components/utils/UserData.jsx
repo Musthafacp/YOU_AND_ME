@@ -12,7 +12,7 @@ const useUserData = () => {
   const getUserdata = async (id) => {
     try {
       const response = await axios.get(
-        `http://localhost:4000/users/myprofile/${id}`
+        `https://you-and-me-jg8p.onrender.com/users/myprofile/${id}`
       );
       setUserData(response.data);
     } catch (err) {
@@ -25,13 +25,15 @@ const useUserData = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log("Fetching user data...");
       try {
         const response = await axios.post(
-          "http://localhost:4000/users/tokenvalidate",
+          "https://you-and-me-jg8p.onrender.com/users/tokenvalidate",
           {},
           { withCredentials: true }
         );
         const { user, valid } = response.data;
+        console.log(response.data);
         setUser(user);
         if (user) {
           getUserdata(user._id);
