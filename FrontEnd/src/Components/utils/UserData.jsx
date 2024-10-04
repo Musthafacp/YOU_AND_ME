@@ -25,11 +25,10 @@ const useUserData = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const token = Cookies.get("token");
       try {
         const response = await axios.post(
           "http://localhost:4000/users/tokenvalidate",
-          { token },
+          {},
           { withCredentials: true }
         );
         const { user, valid } = response.data;

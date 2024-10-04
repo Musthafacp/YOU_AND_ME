@@ -30,7 +30,7 @@ const generateToken = (data) => {
 const verifyToken = (req, res, next) => {
   const token =
     req.cookies.token || req.headers["x-access-token"] || req.body.token;
-  console.log(token);
+  console.log("TOKEN :- ",token);
   if (!token) {
     return res.status(200).json({ error: "Token is not provided" });
   }
@@ -207,10 +207,12 @@ router.post("/getone", async (req, res) => {
     const token = generateToken(userProfile);
 
     res.cookie("token", token, {
-      httpOnly: false,
-      secure: false,
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
+
 
     res
       .status(201)
@@ -248,9 +250,9 @@ router.post("/", async (req, res) => {
       const token = generateToken(userProfile);
 
       res.cookie("token", token, {
-        httpOnly: false,
-        secure: false,
-        sameSite: "Lax",
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
         maxAge: 7 * 24 * 60 * 60 * 1000,
       });
 
