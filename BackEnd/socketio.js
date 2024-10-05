@@ -6,7 +6,7 @@ const PersonalMessage = require("./Schemas/PersonalMessage");
 const setupSocket = (server) => {
   const io = new Server(server, {
     cors: {
-      origin: "https://you-and-me-build.vercel.app",
+      origin: "https://you-and-me-lake.vercel.app",
       methods: ["GET", "POST"],
     },
   });

@@ -35,7 +35,7 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: "https://you-and-me-build.vercel.app",
+    origin: "https://you-and-me-lake.vercel.app",
     credentials: true,
   })
 );

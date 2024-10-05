@@ -8,7 +8,7 @@ router.get('/google',
 
 router.get(
   "/google/callback",
-  passport.authenticate("google", { failureRedirect: "https://you-and-me-build.vercel.app/login" }),
+  passport.authenticate("google", { failureRedirect: "https://you-and-me-lake.vercel.app/login" }),
   (req, res) => {
     console.log(req.user);
     const { token, profile } = req.user;
@@ -20,7 +20,7 @@ router.get(
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
-    res.redirect("https://you-and-me-build.vercel.app/home");
+    res.redirect("https://you-and-me-lake.vercel.app/home");
   }
 );
 
